@@ -14,7 +14,7 @@ class Client
     protected PublicApi $api;
 
     /**
-     * Create a new controller instance.
+     * Create a new client instance.
      */
     public function __construct()
     {
