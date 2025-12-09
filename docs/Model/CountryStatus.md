@@ -1,4 +1,4 @@
-# # CountryStatus
+# CountryStatus
 
 ## Properties
 

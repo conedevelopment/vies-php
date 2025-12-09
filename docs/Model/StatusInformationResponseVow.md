@@ -1,4 +1,4 @@
-# # StatusInformationResponseVow
+# StatusInformationResponseVow
 
 ## Properties
 

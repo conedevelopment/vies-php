@@ -19,16 +19,21 @@ Then run `composer install`
 ## Usage
 
 ```php
-<?php
+use Cone\Vies\Client;
+use Cone\Vies\Model\CheckVatRequest;
+use Throwable;
 
-$client = new Cone\Vies\Client;
+$client = new Client;
 
 try {
-    $result = $client->api()->checkStatus();
+    $response = $client->api()->checkVatNumber(new CheckVatRequest([
+        'countryCode' => 'HU',
+        'vatNumber' => '12345678',
+    ]));
 
-    print_r($result);
-} catch (Throwable $exception) {
-    echo 'Exception when calling PublicApi->checkStatus: ', $e->getMessage(), PHP_EOL;
+    // Handle response
+} catch (Throwable $e) {
+    // Handle exception, report to Sentry etc...
 }
 ```
 
@@ -49,6 +54,6 @@ Class | Method | HTTP request | Description
 - [CommonResponse](docs/Model/CommonResponse.md)
 - [CountryStatus](docs/Model/CountryStatus.md)
 - [ErrorWrapper](docs/Model/ErrorWrapper.md)
-- [Match](docs/Model/Match.md)
+- [Status](docs/Model/Status.md)
 - [StatusInformationResponse](docs/Model/StatusInformationResponse.md)
 - [StatusInformationResponseVow](docs/Model/StatusInformationResponseVow.md)

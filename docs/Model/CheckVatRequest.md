@@ -1,4 +1,4 @@
-# # CheckVatRequest
+# CheckVatRequest
 
 ## Properties
 

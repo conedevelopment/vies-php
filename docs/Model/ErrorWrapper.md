@@ -1,4 +1,4 @@
-# # ErrorWrapper
+# ErrorWrapper
 
 ## Properties
 

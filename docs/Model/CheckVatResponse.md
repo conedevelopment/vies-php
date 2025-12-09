@@ -1,4 +1,4 @@
-# # CheckVatResponse
+# CheckVatResponse
 
 ## Properties
 

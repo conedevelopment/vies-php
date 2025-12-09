@@ -1,4 +1,4 @@
-# # StatusInformationResponse
+# StatusInformationResponse
 
 ## Properties
 
