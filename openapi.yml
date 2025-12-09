@@ -5,6 +5,8 @@ info:
   title: "Vies on-the-Web Endpoint"
 produces:
   - "application/json"
+host: "ec.europa.eu"
+basePath: "/taxation_customs/vies/rest-api"
 schemes:
   - "https"
 paths:
