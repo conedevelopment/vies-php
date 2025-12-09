@@ -1,5 +1,4 @@
 composer.phar
-/vendor/
 composer.lock
 .php_cs.cache
 .php-cs-fixer.cache
@@ -7,3 +6,6 @@ composer.lock
 build/phplint.cache
 git_push.sh
 .travis.yml
+
+/vendor/
+/tests/
