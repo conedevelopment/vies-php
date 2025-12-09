@@ -34,7 +34,7 @@ try {
 
 ## API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://ec.europa.eu/taxation_customs/vies/rest-api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

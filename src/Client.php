@@ -18,7 +18,7 @@ class Client
      */
     public function __construct()
     {
-        //
+        $this->config()->setHost('https://ec.europa.eu/taxation_customs/vies/rest-api');
     }
 
     /**
@@ -26,6 +26,16 @@ class Client
      */
     public function api(): PublicApi
     {
-        return $this->api ??= new PublicApi();
+        return $this->api ??= new PublicApi(
+            config: $this->config()
+        );
+    }
+
+    /**
+     * Get the configuration instance.
+     */
+    protected function config(): Configuration
+    {
+        return Configuration::getDefaultConfiguration();
     }
 }
