@@ -12,18 +12,18 @@ $finder = PhpCsFixer\Finder::create()
 ;
 
 $config = new PhpCsFixer\Config();
-
 return $config->setRules([
         '@PSR12' => true,
         'phpdoc_order' => true,
-        'array_syntax' => ['syntax' => 'short'],
-        'single_line_comment_style' => ['comment_types' => ['hash']],
+        'array_syntax' => [ 'syntax' => 'short' ],
         'strict_comparison' => true,
         'strict_param' => true,
-        'phpdoc_indent' => true,
-        'phpdoc_no_package' => true,
-        'phpdoc_scalar' => true,
-        'trailing_comma_in_multiline' => ['elements' => ['arrays']],
-        'declare_strict_types' => true,
+        'no_trailing_whitespace' => false,
+        'no_trailing_whitespace_in_comment' => false,
+        'braces' => false,
+        'single_blank_line_at_eof' => false,
+        'blank_line_after_namespace' => false,
+        'no_leading_import_slash' => false,
     ])
-    ->setFinder($finder);
+    ->setFinder($finder)
+;

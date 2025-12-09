@@ -1,22 +1,20 @@
 {
-    "name": "conedevelopment/vies-php",
-    "description": " VIES EU VAT number checker SDK.",
+    "description": "This is the contract for Vies on-the-Web endpoints. The checkVat service supports exact and approximate matching at the same time. In order to retrieve the requestIdentifier, the information about requesterMemberStateCode and requesterNumber have to be provided.",
     "keywords": [
+        "openapitools",
+        "openapi-generator",
         "openapi",
         "php",
         "sdk",
+        "rest",
         "api"
     ],
-    "homepage": "https://conedevelopment.com",
-    "license": "MIT",
+    "homepage": "https://openapi-generator.tech",
+    "license": "unlicense",
     "authors": [
         {
-            "name": "Cone Development",
-            "homepage": "https://conedevelopment.com"
-        },
-        {
-            "name": "Szépe Viktor",
-            "homepage": "https://www.szepe.net"
+            "name": "OpenAPI-Generator contributors",
+            "homepage": "https://openapi-generator.tech"
         }
     ],
     "require": {
@@ -24,20 +22,24 @@
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "guzzlehttp/guzzle": "^7.3",
+        "guzzlehttp/guzzle": "^7.4.5",
         "guzzlehttp/psr7": "^2.0"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.5"
+        "friendsofphp/php-cs-fixer": "^3.5",
+        "overtrue/phplint": "^9.0",
+        "phpunit/phpunit": "^9.0"
     },
     "autoload": {
-        "psr-4": {
-            "Cone\\Vies\\" : "src/"
-        }
+        "psr-4": { "Cone\\Vies\\" : "src/" }
     },
     "autoload-dev": {
-        "psr-4": {
-            "Cone\\Vies\\Test\\" : "test/"
-        }
+        "psr-4": { "Cone\\Vies\\Test\\" : "tests/" }
+    },
+    "scripts": {
+        "test": [
+            "@phplint"
+        ],
+        "phplint": "phplint"
     }
 }
