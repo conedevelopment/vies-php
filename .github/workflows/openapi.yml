@@ -72,6 +72,8 @@ jobs:
             env:
                 PHP_POST_PROCESS_FILE: "php-cs-fixer fix --allow-risky yes"
             run: |
+                ls ./../
+                ls ./../../
                 java -jar "${{ runner.temp }}/openapi-generator-cli.jar" generate \
                     --input-spec ./openapi.yml \
                     --generator-name php-nextgen \
