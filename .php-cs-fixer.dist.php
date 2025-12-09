@@ -14,7 +14,7 @@ $finder = PhpCsFixer\Finder::create()
 $config = new PhpCsFixer\Config();
 return $config->setRules([
         '@PSR12' => true,
-        'phpdoc_order' => true,
+        /* 'phpdoc_order' => true,
         'array_syntax' => ['syntax' => 'short'],
         'single_line_comment_style' => ['comment_types' => ['hash']],
         'strict_comparison' => true,
@@ -23,7 +23,7 @@ return $config->setRules([
         'phpdoc_no_package' => true,
         'phpdoc_scalar' => true,
         'trailing_comma_in_multiline' => ['elements' => ['arrays']],
-        'declare_strict_types' => true,
+        'declare_strict_types' => true, */
     ])
     ->setFinder($finder)
 ;
