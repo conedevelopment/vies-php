@@ -1,0 +1,192 @@
+swagger: "2.0"
+info:
+  description: "This is the contract for Vies on-the-Web endpoints. The checkVat service supports exact and approximate matching at the same time. In order to retrieve the requestIdentifier, the information about requesterMemberStateCode and requesterNumber have to be provided."
+  version: "1.0.0"
+  title: "Vies on-the-Web Endpoint"
+produces:
+  - "application/json"
+schemes:
+  - "https"
+paths:
+  /check-vat-number:
+    post:
+      tags:
+        - "public"
+      summary: "Check a Vat Number for a specific country"
+      operationId: "checkVatNumber"
+      parameters:
+        - name: "body"
+          in: "body"
+          description: "The request body"
+          required: true
+          schema:
+            $ref: "#/definitions/CheckVatRequest"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/CheckVatResponse"
+        "400":
+          description: "Bad Request"
+          schema:
+            $ref: "#/definitions/CommonResponse"
+        "500":
+          description: "Internal server error"
+          schema:
+            $ref: "#/definitions/CommonResponse"
+  /check-vat-test-service:
+    post:
+      tags:
+        - "public"
+      summary: "Test the check vat service"
+      operationId: "checkVatTestService"
+      parameters:
+        - name: "body"
+          in: "body"
+          description: "The request body"
+          required: true
+          schema:
+            $ref: "#/definitions/CheckVatRequest"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/CheckVatResponse"
+        "400":
+          description: "Bad Request"
+          schema:
+            $ref: "#/definitions/CommonResponse"
+        "500":
+          description: "Internal server error"
+          schema:
+            $ref: "#/definitions/CommonResponse"
+  /check-status:
+    get:
+      tags:
+        - "public"
+      summary: "Check the status of each member states"
+      operationId: "checkStatus"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/StatusInformationResponse"
+        "400":
+          description: "Bad Request"
+          schema:
+            $ref: "#/definitions/CommonResponse"
+        "500":
+          description: "Internal server error"
+          schema:
+            $ref: "#/definitions/CommonResponse"
+definitions:
+  Status:
+    type: "string"
+    enum:
+      - "VALID"
+      - "INVALID"
+      - "NOT_PROCESSED"
+  CheckVatRequest:
+    type: "object"
+    properties:
+      countryCode:
+        type: "string"
+      vatNumber:
+        type: "string"
+      requesterMemberStateCode:
+        type: "string"
+      requesterNumber:
+        type: "string"
+      traderName:
+        type: "string"
+      traderStreet:
+        type: "string"
+      traderPostalCode:
+        type: "string"
+      traderCity:
+        type: "string"
+      traderCompanyType:
+        type: "string"
+  CheckVatResponse:
+    type: "object"
+    properties:
+      countryCode:
+        type: "string"
+      vatNumber:
+        type: "string"
+      requestDate:
+        type: "string"
+        format: "date-time"
+      valid:
+        type: "boolean"
+      requestIdentifier:
+        type: "string"
+      name:
+        type: "string"
+      address:
+        type: "string"
+      traderName:
+        type: "string"
+      traderStreet:
+        type: "string"
+      traderPostalCode:
+        type: "string"
+      traderCity:
+        type: "string"
+      traderCompanyType:
+        type: "string"
+      traderNameMatch:
+        $ref: "#/definitions/Status"
+      traderStreetMatch:
+        $ref: "#/definitions/Status"
+      traderPostalCodeMatch:
+        $ref: "#/definitions/Status"
+      traderCityMatch:
+        $ref: "#/definitions/Status"
+      traderCompanyTypeMatch:
+        $ref: "#/definitions/Status"
+  CountryStatus:
+    type: "object"
+    properties:
+      countryCode:
+        type: "string"
+      availability:
+        type: "string"
+        enum:
+          - "Available"
+          - "Unavailable"
+          - "Monitoring Disabled"
+  StatusInformationResponse:
+    type: "object"
+    properties:
+      vow:
+        type: "object"
+        properties:
+          available:
+            type: "boolean"
+      countries:
+        type: "array"
+        items:
+          $ref: "#/definitions/CountryStatus"
+  CommonResponse:
+    type: "object"
+    properties:
+      actionSucceed:
+        type: "boolean"
+        description: "Indicate if the action succeed or not"
+      errorWrappers:
+        $ref: "#/definitions/ErrorWrappers"
+  ErrorWrappers:
+    type: "array"
+    description: "Indicate the cause of the error when actionSucceed is false."
+    items:
+      $ref: "#/definitions/ErrorWrapper"
+  ErrorWrapper:
+    type: "object"
+    description: "Define information about an error"
+    properties:
+      error:
+        type: "string"
+        description: "The error code"
+      message:
+        type: "string"
