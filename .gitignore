@@ -6,6 +6,7 @@ composer.lock
 build/phplint.cache
 git_push.sh
 .travis.yml
+phpunit.xml.dist
 
 /vendor/
 /tests/
