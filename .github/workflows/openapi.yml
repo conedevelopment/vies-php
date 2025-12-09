@@ -76,7 +76,6 @@ jobs:
                     --input-spec ./openapi.yml \
                     --generator-name php-nextgen \
                     --output ./ \
-                    --enable-post-process-file \
                     --additional-properties 'invokerPackage=Cone\Vies,variableNamingConvention=camelCase,srcBasePath=src'
         -
             name: "Check difference to repository"
