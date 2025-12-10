@@ -1,4 +1,4 @@
-# OpenAPIClient-php
+# VIES API PHP SDK
 
 This is the contract for Vies on-the-Web endpoints. The checkVat service supports exact and approximate matching at the same time. In order to retrieve the requestIdentifier, the information about requesterMemberStateCode and requesterNumber have to be provided.
 
