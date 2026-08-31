@@ -4,12 +4,14 @@ src/ApiException.php
 src/Configuration.php
 src/FormDataProcessor.php
 src/HeaderSelector.php
+src/Model/AnyOfInterface.php
 src/Model/CheckVatRequest.php
 src/Model/CheckVatResponse.php
 src/Model/CommonResponse.php
 src/Model/CountryStatus.php
 src/Model/ErrorWrapper.php
 src/Model/ModelInterface.php
+src/Model/OneOfInterface.php
 src/Model/Status.php
 src/Model/StatusInformationResponse.php
 src/Model/StatusInformationResponseVow.php
